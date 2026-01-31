@@ -13,46 +13,66 @@ namespace MobilEsemka
 {
     public partial class USMotor : UserControl
     {
+        // bikin object koneksi
         public Koneksi konek = new Koneksi();
         public USMotor()
         {
             InitializeComponent();
         }
 
+        // bikin method untuk load data motor
         private void LoadDataMotor()
         {
+            // bangun query buat ngambil data tertentu yang mau ditampilin
             string query = "SELECT id_motor ,nama_motor, no_motor, jenis, merk, gambar,harga FROM motor;";
 
+            // pake try catch biar kalo error bisa ketangkep
             try
             {
+                // bikin command buat eksekusi query
                 SqlCommand cmd = new SqlCommand(query, konek.conn);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
 
+                // isi datatable pake dataadapter
                 da.Fill(dt);
 
+                // tampilin data di datagridview
                 dgvMotor.DataSource = dt;
+
+                // hide kolom id_motor dan gambar
                 dgvMotor.Columns["gambar"].Visible = false;
+                dgvMotor.Columns["id_motor"].Visible = false; 
 
             }
             catch(Exception ex)
             {
+                // tangkep error
                 MessageBox.Show(ex.Message);
             }
         }
 
         private void USMotor_Load(object sender, EventArgs e)
         {
+            // buka koneksi
             konek.Open();
+
+            //load data motor
             LoadDataMotor();
         }
 
         private void btnTambah_Click(object sender, EventArgs e)
         {
+
+            // bikin object form tambah
             tambah frm = new tambah();
+
+            // tampilkan form tambah, modal
+            // form utama ga bakal bisa diapa-apain
+            // sampe lau tutup form tambah :v
             frm.ShowDialog();
 
-            // setelah form ditutup
+            // abis tambah ditutup data langsung di refresh pake LoadDataMotor
             LoadDataMotor();
         }
 
@@ -63,15 +83,25 @@ namespace MobilEsemka
 
         private void dgvMotor_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            int baris = dgvMotor.SelectedRows[0].Index;
-            var barisData = dgvMotor.Rows[baris];
 
-            lblJenis.Text = barisData.Cells[1].Value.ToString();
-            lblNoMotor.Text = barisData.Cells[2].Value.ToString();
-            lblMerk.Text = barisData.Cells[3].Value.ToString();
-            lblNamaMotor.Text = barisData.Cells[4].Value.ToString();
-            pbMotor.ImageLocation = barisData.Cells[5].Value.ToString();
-            lblHargaSewa.Text = barisData.Cells[6].Value.ToString();
+            // cek kalo row yang di klik user bukan header
+            // kalo valid, ambil data dari row yang di klik
+            if (e.RowIndex >= 0)
+            {
+                // bikin object row buat nampung data row yang di klik
+                DataGridViewRow row = dgvMotor.Rows[e.RowIndex];
+
+                // tampilin data di label dan picturebox dari data yang di klik
+                // data berdasarkan nama kolom di database
+                // dan data yang dimasukan saat tambah motor
+                lblJenis.Text = row.Cells["jenis"].Value.ToString();
+                lblNoMotor.Text = row.Cells["no_motor"].Value.ToString();
+                lblMerk.Text = row.Cells["merk"].Value.ToString();
+                lblNamaMotor.Text = row.Cells["nama_motor"].Value.ToString();
+                pbMotor.ImageLocation = row.Cells["gambar"].Value.ToString();
+                lblHargaSewa.Text = row.Cells["harga"].Value.ToString();
+
+            }
         }
 
         private void USMotor_Enter(object sender, EventArgs e)
