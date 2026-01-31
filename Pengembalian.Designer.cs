@@ -1,6 +1,6 @@
 ﻿namespace MobilEsemka
 {
-    partial class DaftarSewa
+    partial class Pengembalian
     {
         /// <summary>
         /// Required designer variable.
@@ -33,11 +33,12 @@
             this.btnPengembalian = new System.Windows.Forms.Button();
             this.btnSewa = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dgvMotor = new System.Windows.Forms.DataGridView();
-            this.txtKey = new System.Windows.Forms.TextBox();
-            this.btnCari = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.txtKey = new System.Windows.Forms.TextBox();
+            this.dgvMotor = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnSewaBr = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMotor)).BeginInit();
@@ -52,7 +53,7 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(206, 424);
-            this.flowLayoutPanel1.TabIndex = 6;
+            this.flowLayoutPanel1.TabIndex = 13;
             // 
             // panel1
             // 
@@ -73,7 +74,6 @@
             this.btnPengembalian.Text = "Pengembalian";
             this.btnPengembalian.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPengembalian.UseVisualStyleBackColor = true;
-            this.btnPengembalian.Click += new System.EventHandler(this.btnPengembalian_Click);
             // 
             // btnSewa
             // 
@@ -85,6 +85,7 @@
             this.btnSewa.Text = "Sewa";
             this.btnSewa.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSewa.UseVisualStyleBackColor = true;
+            this.btnSewa.Click += new System.EventHandler(this.btnSewa_Click);
             // 
             // button1
             // 
@@ -97,70 +98,85 @@
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(212, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(224, 30);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Rental Motor ESEMKA";
-            // 
-            // dgvMotor
-            // 
-            this.dgvMotor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMotor.Location = new System.Drawing.Point(212, 145);
-            this.dgvMotor.Name = "dgvMotor";
-            this.dgvMotor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvMotor.Size = new System.Drawing.Size(641, 213);
-            this.dgvMotor.TabIndex = 8;
-            this.dgvMotor.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMotor_CellContentClick);
-            // 
-            // txtKey
-            // 
-            this.txtKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtKey.Location = new System.Drawing.Point(492, 112);
-            this.txtKey.Multiline = true;
-            this.txtKey.Name = "txtKey";
-            this.txtKey.Size = new System.Drawing.Size(263, 27);
-            this.txtKey.TabIndex = 10;
-            // 
-            // btnCari
-            // 
-            this.btnCari.Location = new System.Drawing.Point(777, 112);
-            this.btnCari.Name = "btnCari";
-            this.btnCari.Size = new System.Drawing.Size(75, 30);
-            this.btnCari.TabIndex = 11;
-            this.btnCari.Text = "Cari";
-            this.btnCari.UseVisualStyleBackColor = true;
-            this.btnCari.Click += new System.EventHandler(this.btnCari_Click);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(377, 115);
+            this.label3.Location = new System.Drawing.Point(220, 85);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 21);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Daftar Motor";
+            this.label3.Size = new System.Drawing.Size(92, 21);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "Pelanggan";
             // 
-            // DaftarSewa
+            // txtKey
+            // 
+            this.txtKey.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtKey.Location = new System.Drawing.Point(342, 85);
+            this.txtKey.Multiline = true;
+            this.txtKey.Name = "txtKey";
+            this.txtKey.Size = new System.Drawing.Size(471, 27);
+            this.txtKey.TabIndex = 16;
+            this.txtKey.TextChanged += new System.EventHandler(this.txtKey_TextChanged);
+            // 
+            // dgvMotor
+            // 
+            this.dgvMotor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMotor.Location = new System.Drawing.Point(223, 191);
+            this.dgvMotor.Name = "dgvMotor";
+            this.dgvMotor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dgvMotor.Size = new System.Drawing.Size(641, 143);
+            this.dgvMotor.TabIndex = 15;
+            this.dgvMotor.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMotor_CellContentClick);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(218, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(224, 30);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Rental Motor ESEMKA";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(219, 158);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(153, 21);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Daftar Sewa Motor";
+            // 
+            // btnSewaBr
+            // 
+            this.btnSewaBr.BackColor = System.Drawing.Color.Aquamarine;
+            this.btnSewaBr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSewaBr.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSewaBr.Location = new System.Drawing.Point(237, 358);
+            this.btnSewaBr.Name = "btnSewaBr";
+            this.btnSewaBr.Size = new System.Drawing.Size(91, 40);
+            this.btnSewaBr.TabIndex = 20;
+            this.btnSewaBr.Text = "Sewa Baru";
+            this.btnSewaBr.UseVisualStyleBackColor = false;
+            this.btnSewaBr.Click += new System.EventHandler(this.btnSewaBr_Click);
+            // 
+            // Pengembalian
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(865, 424);
+            this.Controls.Add(this.btnSewaBr);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.btnCari);
             this.Controls.Add(this.txtKey);
             this.Controls.Add(this.dgvMotor);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.flowLayoutPanel1);
-            this.Name = "DaftarSewa";
+            this.Name = "Pengembalian";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Daftar Sewa";
-            this.Load += new System.EventHandler(this.DaftarSewa_Load);
+            this.Text = "Pengembalian";
+            this.Load += new System.EventHandler(this.Pengembalian_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMotor)).EndInit();
@@ -176,10 +192,11 @@
         private System.Windows.Forms.Button btnPengembalian;
         private System.Windows.Forms.Button btnSewa;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgvMotor;
-        private System.Windows.Forms.TextBox txtKey;
-        private System.Windows.Forms.Button btnCari;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtKey;
+        private System.Windows.Forms.DataGridView dgvMotor;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnSewaBr;
     }
 }

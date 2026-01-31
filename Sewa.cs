@@ -115,13 +115,13 @@ namespace MobilEsemka
             }
             else
             {
-                string query = "INSERT INTO transaksi (id_pelanggan, id_user, id_motor, tgl_sewa, tgl_kembali, lama, total_harga, jaminan, jatuh_tempo) VALUES (@id_pelanggan, @id_user, @id_motor, @tgl_sewa, @tgl_kembali, @lama, @total_harga, @jaminan, @jatuh_tempo)";
+                string query = "INSERT INTO transaksi (id_pelanggan, id_user, id_motor, tgl_sewa, lama, total_harga, jaminan, jatuh_tempo) VALUES (@id_pelanggan, @id_user, @id_motor, @tgl_sewa, @lama, @total_harga, @jaminan, @jatuh_tempo)";
 
                 int idPelanggan = (int)cbPelanggan.SelectedValue;
                 int idMotor = IdMotor;
                 int idUser = Session.idUser;
-                var kembaliDate = dtpSewa.Value.AddDays(int.Parse(txtLama.Text));
                 decimal totalHarga = Harga * int.Parse(txtLama.Text);
+                var kembaliDate = dtpSewa.Value.AddDays(int.Parse(txtLama.Text));
 
                 // binding parameters and query untuk sewa motor
                 SqlCommand cmdInsert = new SqlCommand(query, konek.conn);
@@ -129,7 +129,6 @@ namespace MobilEsemka
                 cmdInsert.Parameters.AddWithValue("@id_user", idUser);
                 cmdInsert.Parameters.AddWithValue("@id_motor", idMotor);
                 cmdInsert.Parameters.AddWithValue("@tgl_sewa", dtpSewa.Value);
-                cmdInsert.Parameters.AddWithValue("@tgl_kembali", kembaliDate);
                 cmdInsert.Parameters.AddWithValue("@lama", int.Parse(txtLama.Text));
                 cmdInsert.Parameters.AddWithValue("@total_harga", totalHarga);
                 cmdInsert.Parameters.AddWithValue("@jaminan", txtJaminan.Text);

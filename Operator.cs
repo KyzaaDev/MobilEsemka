@@ -29,5 +29,11 @@ namespace MobilEsemka
             new DaftarSewa().Show();
             this.Hide();
         }
+
+        private void btnKembali_Click(object sender, EventArgs e)
+        {
+            new Pengembalian().Show();
+            this.Hide();
+        }
     }
 }

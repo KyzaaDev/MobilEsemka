@@ -44,16 +44,6 @@ namespace MobilEsemka
                     dgvMotor.Columns.Add(sewaCol);
                 }
 
-                foreach (DataGridViewRow row in dgvMotor.Rows)
-                {
-                    string status = row.Cells["status"].Value?.ToString().ToLower();
-                    if (status != "aktif")
-                    {
-                        row.DefaultCellStyle.BackColor = Color.LightCoral; // warna merah muda
-                        row.DefaultCellStyle.ForeColor = Color.White;       // teks putih biar jelas
-                    }
-                }
-
             }
             catch (Exception ex)
             {
@@ -69,7 +59,7 @@ namespace MobilEsemka
 
         private void btnCari_Click(object sender, EventArgs e)
         {
-            string query = "SELECT * FROM motor WHERE nama_motor LIKE @keyword OR jenis LIKE @keyword OR no_motor LIKE @keyword OR merk LIKE @keyword OR harga LIKE @keyword";
+            string query = "SELECT id_motor, nama_motor, no_motor, jenis, harga, status FROM motor WHERE nama_motor LIKE @keyword OR jenis LIKE @keyword OR no_motor LIKE @keyword OR merk LIKE @keyword OR harga LIKE @keyword";
 
             try
             {
@@ -88,7 +78,7 @@ namespace MobilEsemka
                 MessageBox.Show(ex.Message);
             }
 
-            int jumlahData = dgvMotor.Rows.Count;
+            int jumlahData = dgvMotor.Rows.Count - 1;
             if (jumlahData == 0)
             {
                 MessageBox.Show("Data tidak ditemukan!");
@@ -127,6 +117,12 @@ namespace MobilEsemka
 
                 
             }
+        }
+
+        private void btnPengembalian_Click(object sender, EventArgs e)
+        {
+            new Pengembalian().Show();  
+            this.Hide();
         }
     }
 }

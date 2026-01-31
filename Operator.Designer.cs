@@ -33,7 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnLaporan = new System.Windows.Forms.Button();
+            this.btnKembali = new System.Windows.Forms.Button();
             this.btnSewa = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.lblTgl = new System.Windows.Forms.Label();
@@ -86,23 +86,24 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnLaporan);
+            this.panel1.Controls.Add(this.btnKembali);
             this.panel1.Controls.Add(this.btnSewa);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 89);
             this.panel1.TabIndex = 4;
             // 
-            // btnLaporan
+            // btnKembali
             // 
-            this.btnLaporan.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLaporan.Location = new System.Drawing.Point(0, 47);
-            this.btnLaporan.Name = "btnLaporan";
-            this.btnLaporan.Size = new System.Drawing.Size(200, 41);
-            this.btnLaporan.TabIndex = 1;
-            this.btnLaporan.Text = "Pengembalian";
-            this.btnLaporan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLaporan.UseVisualStyleBackColor = true;
+            this.btnKembali.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnKembali.Location = new System.Drawing.Point(0, 47);
+            this.btnKembali.Name = "btnKembali";
+            this.btnKembali.Size = new System.Drawing.Size(200, 41);
+            this.btnKembali.TabIndex = 1;
+            this.btnKembali.Text = "Pengembalian";
+            this.btnKembali.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnKembali.UseVisualStyleBackColor = true;
+            this.btnKembali.Click += new System.EventHandler(this.btnKembali_Click);
             // 
             // btnSewa
             // 
@@ -163,7 +164,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnLaporan;
+        private System.Windows.Forms.Button btnKembali;
         private System.Windows.Forms.Button btnSewa;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblTgl;
