@@ -44,5 +44,11 @@ namespace MobilEsemka
             new Pengembalian().Show();
             this.Hide();
         }
+
+        private void btnLaporan_Click(object sender, EventArgs e)
+        {
+            new Laporan().Show();
+            this.Hide();
+        }
     }
 }
