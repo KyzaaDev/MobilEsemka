@@ -19,7 +19,7 @@ namespace MobilEsemka
             InitializeComponent();
         }
 
-        // bikin functio buat ngeclear form
+        // bikin function buat ngeclear form
         private void ClearForms()
         {
             txtUsername.Text = ""; // ngeclear textbox username
@@ -88,12 +88,16 @@ namespace MobilEsemka
                 // ngecek kalo ada data yang sesuai
                 if (reader.Read())
                 {
-                    // kalo ada yang sesuai, beberapa data user disimpen ke session
+                    // kalo ada yang sesuai, beberapa data user disimpen ke session buat dipake lagi kalo mau
                     // data diambil dari reader yang isinya hasil query
                     Session.IsLogin = true;
                     Session.Username = reader["username"].ToString();
                     Session.Nama = reader["nama"].ToString();
+
+                    // ini role orang yang login
                     Session.Level = reader["level"].ToString();
+
+                    // id user disimpen pake int
                     Session.idUser = Convert.ToInt32(reader["id_user"]);
 
                     MessageBox.Show("Login berhasil!");

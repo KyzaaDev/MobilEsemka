@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+
+// library buat koneksi ke sql server
+using System.Data.SqlClient; // harus pake ini buat segala hal yang berhubungan sama sql server
 
 namespace MobilEsemka
 {
@@ -31,10 +33,14 @@ namespace MobilEsemka
             {
                 // bikin command buat eksekusi query
                 SqlCommand cmd = new SqlCommand(query, konek.conn);
+
+                // bikin dataadapter buat nampung data dari command
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+                // bikin datatable buat nampung data dari dataadapter
                 DataTable dt = new DataTable();
 
-                // isi datatable pake dataadapter
+                // isi datatable pake data yang ada di data adapter
                 da.Fill(dt);
 
                 // tampilin data di datagridview
@@ -61,6 +67,7 @@ namespace MobilEsemka
             LoadDataMotor();
         }
 
+        // event kalo btnTambah di klik
         private void btnTambah_Click(object sender, EventArgs e)
         {
 
@@ -81,6 +88,7 @@ namespace MobilEsemka
 
         }
 
+        // event kalo user double klik di datagridview
         private void dgvMotor_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
 

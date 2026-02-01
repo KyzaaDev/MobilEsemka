@@ -19,7 +19,11 @@ namespace MobilEsemka
 
         private void Admin_Load(object sender, EventArgs e)
         {
+            // pas form di load, dashboard bikin greeting berdasar session user yg login
+
+            // contoh: "Selamat datang, Admin"
             lblGreet.Text += " " + Session.Nama;
+            // contoh: "Level: Admin"
             lblUser.Text += " " + Session.Level;
         }
 
