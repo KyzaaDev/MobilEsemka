@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -69,7 +70,10 @@ namespace MobilEsemka
         private void Pengembalian_Load(object sender, EventArgs e)
         {
             konek.Open(); // buka koneksi
-            
+            lblUsername.Text = " " + Session.Username; // nampilin username session
+            lblTgl.Text = DateTime.Now.ToString("d MMMM yyyy", new CultureInfo("id-ID")); // nampilin tanggal hari ini
+
+
             DataGridViewButtonColumn kemCell = new DataGridViewButtonColumn();
             kemCell.Name = "Kembalikan";
             kemCell.Text = "Kembalikan";

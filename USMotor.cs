@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization; // library buat format tanggal
 
 // library buat koneksi ke sql server
 using System.Data.SqlClient; // harus pake ini buat segala hal yang berhubungan sama sql server
@@ -60,6 +61,9 @@ namespace MobilEsemka
 
         private void USMotor_Load(object sender, EventArgs e)
         {
+            lblTgl.Text = DateTime.Now.ToString("d MMMM yyyy", new CultureInfo("id-ID"));
+            lblUsername.Text = Session.Username;
+
             // buka koneksi
             konek.Open();
 

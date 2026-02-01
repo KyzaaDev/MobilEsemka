@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Globalization;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
@@ -72,6 +73,8 @@ namespace MobilEsemka
 
         private void DaftarSewa_Load(object sender, EventArgs e)
         {
+            lblTgl.Text = DateTime.Now.ToString("d MMMM yyyy", new CultureInfo("id-ID"));
+            lblUsername.Text = Session.Username;
             // buka koneksi
             konek.Open();
             // langsung load semua data motor
@@ -157,6 +160,7 @@ namespace MobilEsemka
                     // karena di form sewa udah bikin setter sama getter
                     // jadi datanya tinggal kirim dari sini
                     // dan berdasar data dari row yang di click
+                    // inject data ke form sewa
                     frm.IdMotor = Convert.ToInt16(row.Cells["id_motor"].Value);
                     frm.NamaMotor = row.Cells["nama_motor"].Value.ToString();
                     frm.NoMotor = row.Cells["no_motor"].Value.ToString();

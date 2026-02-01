@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace MobilEsemka
 {
@@ -22,6 +23,8 @@ namespace MobilEsemka
 
         private void Laporan_Load(object sender, EventArgs e)
         {
+            lblTanggal.Text = DateTime.Now.ToString("d MMMM yyyy", new CultureInfo("id-ID"));
+            lblUsername.Text = Session.Username;
             konek.Open();
             LoadData();
         }

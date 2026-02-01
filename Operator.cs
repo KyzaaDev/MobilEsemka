@@ -23,6 +23,7 @@ namespace MobilEsemka
             // Menampilkan data session
             lblGreet.Text += " " + Session.Nama;
             lblUser.Text += " " + Session.Level;
+            lblUsername.Text = " " + Session.Username;
             // Menampilkan tanggal sekarang
             lblTgl.Text = DateTime.Now.ToString("d MMMM yyyy", new CultureInfo("id-ID"));
         }
